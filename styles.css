@@ -1,24 +1,23 @@
-/* =========================
-   Design Tokens
-   ========================= */
 :root {
   --bg: #f9fafb;
   --card: #ffffff;
   --text: #0f172a;
   --muted: #475569;
   --border: #e5e7eb;
-  --accent: #990000; /* USC cardinal */
+  --accent: #990000;
 }
 
-/* =========================
-   Global Reset
-   ========================= */
+[data-theme="dark"] {
+  --bg: #0b0f19;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #1f2933;
+  --accent: #f87171;
+}
+
 * {
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -26,40 +25,31 @@ body {
   padding: 48px 20px;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
 }
 
-/* =========================
-   Header / Hero
-   ========================= */
 .hero {
   max-width: 900px;
   margin: 0 auto 56px auto;
   text-align: center;
+  position: relative;
 }
 
 .hero h1 {
   font-size: 2.75rem;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-  letter-spacing: -0.02em;
+  margin-bottom: 6px;
 }
 
-.hero .meta {
+.meta {
   font-size: 0.95rem;
   color: var(--muted);
 }
 
-.hero .meta a {
+.meta a {
   color: var(--accent);
   text-decoration: none;
   font-weight: 500;
-}
-
-.hero .meta a:hover {
-  text-decoration: underline;
 }
 
 .resume-btn {
@@ -67,23 +57,23 @@ body {
   margin-top: 18px;
   padding: 12px 22px;
   background: var(--accent);
-  color: #fff;
+  color: white;
+  border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
-  border-radius: 10px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease,
-    background 0.15s ease;
 }
 
-.resume-btn:hover {
-  background: #7f0000;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+#theme-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  cursor: pointer;
 }
 
-/* =========================
-   Main Layout
-   ========================= */
 main {
   max-width: 900px;
   margin: 0 auto;
@@ -93,38 +83,38 @@ main {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 28px 30px;
+  padding: 28px;
   margin-bottom: 28px;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.card:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
 }
 
-h2 {
-  margin: 0 0 16px 0;
-  font-size: 1.25rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 6px;
-  letter-spacing: 0.02em;
+.chevron {
+  transition: transform 0.2s ease;
 }
 
-/* =========================
-   Resume Items
-   ========================= */
+.collapsible.closed .chevron {
+  transform: rotate(-90deg);
+}
+
+.section-content {
+  margin-top: 16px;
+}
+
+.collapsible.closed .section-content {
+  display: none;
+}
+
 .item {
-  margin-bottom: 22px;
-}
-
-.item:last-child {
-  margin-bottom: 0;
-}
-
-.item strong {
-  font-size: 1rem;
-  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .right {
@@ -134,31 +124,14 @@ h2 {
 }
 
 .sub {
-  margin-top: 2px;
   font-size: 0.9rem;
   color: var(--muted);
 }
 
-ul {
-  margin: 8px 0 0 18px;
-  padding: 0;
-}
-
-ul li {
-  margin-bottom: 6px;
-}
-
-/* =========================
-   Skills
-   ========================= */
 .skills {
   font-size: 0.95rem;
-  color: var(--text);
 }
 
-/* =========================
-   Footer
-   ========================= */
 footer {
   margin-top: 72px;
   text-align: center;
@@ -166,21 +139,9 @@ footer {
   color: var(--muted);
 }
 
-/* =========================
-   Responsive
-   ========================= */
 @media (max-width: 640px) {
-  .hero h1 {
-    font-size: 2.1rem;
-  }
-
   .right {
     float: none;
     display: block;
-    margin-top: 2px;
-  }
-
-  .card {
-    padding: 22px 20px;
   }
 }
