@@ -1,23 +1,35 @@
+/* =========================
+   Design Tokens
+   ========================= */
 :root {
   --bg: #f9fafb;
-  --card: #ffffff;
+  --surface: #ffffff;
   --text: #0f172a;
   --muted: #475569;
   --border: #e5e7eb;
-  --accent: #990000;
+  --accent: #990000; /* USC cardinal */
 }
 
 [data-theme="dark"] {
   --bg: #0b0f19;
-  --card: #111827;
+  --surface: #111827;
   --text: #e5e7eb;
   --muted: #9ca3af;
   --border: #1f2933;
   --accent: #f87171;
 }
 
-* {
+/* =========================
+   Global Reset
+   ========================= */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -25,20 +37,26 @@ body {
   padding: 48px 20px;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
 }
 
+/* =========================
+   Header / Hero
+   ========================= */
 .hero {
   max-width: 900px;
-  margin: 0 auto 56px auto;
+  margin: 0 auto 64px auto;
   text-align: center;
   position: relative;
 }
 
 .hero h1 {
-  font-size: 2.75rem;
-  margin-bottom: 6px;
+  margin: 0 0 6px 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .meta {
@@ -52,52 +70,97 @@ body {
   font-weight: 500;
 }
 
-.resume-btn {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 12px 22px;
-  background: var(--accent);
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
+.meta a:hover {
+  text-decoration: underline;
 }
 
+.resume-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 22px;
+  background: var(--accent);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.resume-btn:hover {
+  background: #7f0000;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   Dark Mode Toggle
+   ========================= */
 #theme-toggle {
   position: absolute;
   top: 0;
   right: 0;
-  background: none;
+
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 6px 10px;
+  border-radius: 8px;
+  padding: 6px 8px;
+
+  font-size: 1rem;
   cursor: pointer;
+  color: var(--text);
+
+  transition: transform 0.15s ease, background 0.15s ease;
 }
 
+#theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+/* =========================
+   Main Layout
+   ========================= */
 main {
   max-width: 900px;
   margin: 0 auto;
 }
 
+/* =========================
+   Cards / Sections
+   ========================= */
 .card {
-  background: var(--card);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 28px;
+  padding: 28px 30px;
   margin-bottom: 28px;
 }
 
+/* =========================
+   Collapsible Headers
+   ========================= */
 .section-header {
+  all: unset;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: none;
-  border: none;
+  justify-content: space-between;
   width: 100%;
   cursor: pointer;
 }
 
+.section-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+  flex: 1;
+}
+
 .chevron {
+  margin-left: 12px;
+  font-size: 1rem;
+  color: var(--muted);
   transition: transform 0.2s ease;
 }
 
@@ -105,16 +168,30 @@ main {
   transform: rotate(-90deg);
 }
 
+/* =========================
+   Section Content
+   ========================= */
 .section-content {
-  margin-top: 16px;
+  margin-top: 18px;
 }
 
 .collapsible.closed .section-content {
   display: none;
 }
 
+/* =========================
+   Resume Items
+   ========================= */
 .item {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.item strong {
+  font-weight: 600;
 }
 
 .right {
@@ -124,14 +201,30 @@ main {
 }
 
 .sub {
+  margin-top: 2px;
   font-size: 0.9rem;
   color: var(--muted);
 }
 
+ul {
+  margin: 8px 0 0 18px;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 6px;
+}
+
+/* =========================
+   Skills
+   ========================= */
 .skills {
   font-size: 0.95rem;
 }
 
+/* =========================
+   Footer
+   ========================= */
 footer {
   margin-top: 72px;
   text-align: center;
@@ -139,9 +232,21 @@ footer {
   color: var(--muted);
 }
 
+/* =========================
+   Responsive
+   ========================= */
 @media (max-width: 640px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
   .right {
     float: none;
     display: block;
+    margin-top: 2px;
+  }
+
+  .card {
+    padding: 22px 20px;
   }
 }
