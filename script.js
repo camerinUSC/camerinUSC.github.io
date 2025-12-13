@@ -1,16 +1,19 @@
 // Dark mode toggle
 const toggle = document.getElementById("theme-toggle");
-const savedTheme = localStorage.getItem("theme");
+const root = document.documentElement;
 
-if (savedTheme) {
-  document.documentElement.setAttribute("data-theme", savedTheme);
+function setTheme(theme) {
+  root.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  toggle.textContent = theme === "dark" ? "☀️" : "🌙";
 }
 
+const savedTheme = localStorage.getItem("theme") || "light";
+setTheme(savedTheme);
+
 toggle.addEventListener("click", () => {
-  const current = document.documentElement.getAttribute("data-theme");
-  const next = current === "dark" ? "light" : "dark";
-  document.documentElement.setAttribute("data-theme", next);
-  localStorage.setItem("theme", next);
+  const current = root.getAttribute("data-theme");
+  setTheme(current === "dark" ? "light" : "dark");
 });
 
 // Collapsible sections
