@@ -65,14 +65,11 @@ body {
   font-size: 3rem;
   font-weight: 800;
   letter-spacing: -0.04em;
+}
 
-  background: linear-gradient(
-    90deg,
-    var(--text),
-    var(--accent)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+[data-theme="dark"] .hero h1 {
+  text-shadow: 0 0 20px rgba(248, 113, 113, 0.35);
 }
 
 
