@@ -9,6 +9,8 @@
 <body>
 
   <header class="hero">
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
     <h1>Camerin Lee</h1>
     <p class="meta">
       Los Angeles, CA ·
@@ -16,111 +18,134 @@
       <a href="https://github.com/camerinUSC" target="_blank">GitHub</a> ·
       <a href="https://www.linkedin.com/in/camerin-lee/" target="_blank">LinkedIn</a>
     </p>
-    <a class="resume-btn" href="assets/resume.pdf" target="_blank">Download Resume (PDF)</a>
+
+    <a class="resume-btn" href="assets/resume.pdf" target="_blank">
+      Download Resume (PDF)
+    </a>
   </header>
 
   <main>
 
     <!-- Education -->
-    <section class="card">
-      <h2>Education</h2>
+    <section class="card collapsible">
+      <button class="section-header">
+        <h2>Education</h2>
+        <span class="chevron">⌄</span>
+      </button>
+      <div class="section-content">
+        <div class="item">
+          <strong>University of Southern California</strong>
+          <span class="right">Aug 2024 – Present</span>
+          <div class="sub">B.S. Computer Science — Viterbi School of Engineering</div>
+        </div>
 
-      <div class="item">
-        <strong>University of Southern California</strong>
-        <span class="right">     Aug 2024 – Present</span>
-        <div class="sub">B.S. Computer Science — Viterbi School of Engineering</div>
-      </div>
-
-      <div class="item">
-        <strong>West Los Angeles College</strong>
-        <span class="right">     Aug 2021 – Jun 2024</span>
-        <div class="sub">A.S. Computer Science</div>
+        <div class="item">
+          <strong>West Los Angeles College</strong>
+          <span class="right">Aug 2021 – Jun 2024</span>
+          <div class="sub">A.S.-T Computer Science</div>
+        </div>
       </div>
     </section>
 
     <!-- Experience -->
-    <section class="card">
-      <h2>Experience</h2>
+    <section class="card collapsible">
+      <button class="section-header">
+        <h2>Experience</h2>
+        <span class="chevron">⌄</span>
+      </button>
+      <div class="section-content">
 
-      <div class="item">
-        <strong>Systems Testing Intern — Los Angeles Department of Water and Power</strong>
-        <span class="right"> Aug 2025 – Present</span>
-        <ul>
-          <li>Coordinated end-to-end testing for new web and backend features, triaging 100+ defects and reducing average bug-fix turnaround by 25%.</li>
-          <li>Collaborated with engineers to reproduce, isolate, and debug issues across staging environments.</li>
-        </ul>
-      </div>
+        <div class="item">
+          <strong>Systems Testing Intern — Los Angeles Department of Water and Power</strong>
+          <span class="right">Aug 2025 – Present</span>
+          <ul>
+            <li>Coordinated end-to-end testing, triaging 100+ defects and reducing bug-fix turnaround by 25%.</li>
+            <li>Reproduced and isolated issues across staging environments with engineers.</li>
+          </ul>
+        </div>
 
-      <div class="item">
-        <strong>Undergraduate Research Assistant — USC ICT</strong>
-        <span class="right"> Jun 2025 – Aug 2025</span>
-        <ul>
-          <li>Designed and deployed a full-stack platform (React, TypeScript, PHP, MySQL, AWS EC2) supporting 50+ concurrent users.</li>
-          <li>Implemented session state management, encrypted URL routing, and database logging.</li>
-        </ul>
-      </div>
+        <div class="item">
+          <strong>Undergraduate Research Assistant — USC ICT</strong>
+          <span class="right">Jun 2025 – Aug 2025</span>
+          <ul>
+            <li>Built a full-stack platform supporting 50+ concurrent users.</li>
+            <li>Implemented encrypted routing, session state, and database logging.</li>
+          </ul>
+        </div>
 
-      <div class="item">
-        <strong>Research Intern — Superconductor Logic Design (USC)</strong>
-        <span class="right"> Jan 2025 – Jun 2025</span>
-        <ul>
-          <li>Expanded RSFQ cell library from ~30 to 50+ unique cell types.</li>
-          <li>Automated cell generation in Python and KLayout, reducing manual layout time by ~50%.</li>
-        </ul>
-      </div>
+        <div class="item">
+          <strong>Research Intern — Superconductor Logic Design (USC)</strong>
+          <span class="right">Jan 2025 – Jun 2025</span>
+          <ul>
+            <li>Expanded RSFQ library from ~30 to 50+ cells.</li>
+            <li>Automated layout generation, cutting manual time by ~50%.</li>
+          </ul>
+        </div>
 
-      <div class="item">
-        <strong>NSF REU Research Fellow — Purdue University</strong>
-        <span class="right"> May 2024 – Aug 2024</span>
-        <ul>
-          <li>Implemented a stochastic MILP solver in Python (Pyomo, Pandas) with 10k+ decision variables.</li>
-          <li>Presented research results to 150+ researchers at Purdue University.</li>
-        </ul>
-      </div>
+        <div class="item">
+          <strong>NSF REU Research Fellow — Purdue University</strong>
+          <span class="right">May 2024 – Aug 2024</span>
+          <ul>
+            <li>Implemented a stochastic MILP solver with 10k+ decision variables.</li>
+            <li>Presented research to 150+ researchers.</li>
+          </ul>
+        </div>
 
-      <div class="item">
-        <strong>Cybersecurity Intern — City of Los Angeles</strong>
-        <span class="right"> Jun 2023 – May 2024</span>
-        <ul>
-          <li>Automated phishing analysis via Python scripts, improving triage time by 30%.</li>
-          <li>Led cybersecurity awareness sessions for 300+ employees.</li>
-        </ul>
+        <div class="item">
+          <strong>Cybersecurity Intern — City of Los Angeles</strong>
+          <span class="right">Jun 2023 – May 2024</span>
+          <ul>
+            <li>Automated phishing analysis, improving triage time by 30%.</li>
+            <li>Led cybersecurity awareness sessions for 300+ employees.</li>
+          </ul>
+        </div>
+
       </div>
     </section>
 
     <!-- Projects -->
-    <section class="card">
-      <h2>Projects</h2>
-
-      <div class="item">
-        <strong>TopTrait — Full-Stack Roommate Matching Platform</strong>
-        <span class="right"> Oct 2025</span>
-        <div class="sub">Backend Engineer · Spring Boot · PostgreSQL · REST APIs</div>
-        <ul>
-          <li>Built the entire backend system with 20+ REST endpoints using layered architecture.</li>
-          <li>Designed a normalized PostgreSQL schema with 15+ fields and versioned SQL migrations.</li>
-          <li>Improved matching accuracy by up to 40% by expanding lifestyle scoring attributes.</li>
-          <li>Implemented real-time chat via WebSockets for concurrent message delivery.</li>
-        </ul>
+    <section class="card collapsible">
+      <button class="section-header">
+        <h2>Projects</h2>
+        <span class="chevron">⌄</span>
+      </button>
+      <div class="section-content">
+        <div class="item">
+          <strong>TopTrait — Full-Stack Roommate Matching Platform</strong>
+          <span class="right">Oct 2025</span>
+          <div class="sub">Backend Engineer · Spring Boot · PostgreSQL · REST APIs</div>
+          <ul>
+            <li>Designed 20+ REST endpoints using layered architecture.</li>
+            <li>Built a normalized PostgreSQL schema with migrations.</li>
+            <li>Improved match accuracy by up to 40%.</li>
+            <li>Implemented real-time chat with WebSockets.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- Skills -->
-    <section class="card">
-      <h2>Skills</h2>
-      <p class="skills">
-        C/C++, Python, Java, JavaScript/TypeScript ·
-        React, Node.js, Spring Boot ·
-        SQL, PostgreSQL ·
-        Git, AWS, Linux
-      </p>
+    <section class="card collapsible">
+      <button class="section-header">
+        <h2>Skills</h2>
+        <span class="chevron">⌄</span>
+      </button>
+      <div class="section-content">
+        <p class="skills">
+          C/C++, Python, Java, JavaScript/TypeScript ·
+          React, Node.js, Spring Boot ·
+          SQL, PostgreSQL ·
+          Git, AWS, Linux
+        </p>
+      </div>
     </section>
 
   </main>
 
   <footer>
-    <p>© 2025 Camerin Lee</p>
+    © 2025 Camerin Lee
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
